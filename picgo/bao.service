@@ -1,0 +1,12 @@
+[Unit]
+Description= bao web server
+[Service]
+Type=simple
+ExecStart=/bin/sh -c '/usr/local/python3.4/bin/python /work/www/html/bao.xiaohulu.com/web/site/xhl_jbp/app/eom_main.py >> /work/logs/bao.log 2>&1'
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=control-group
+Restart=on-failure
+RestartSec=3s
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
